@@ -26,7 +26,7 @@ It will only accept PRs that have passing [commit status checks](https://help.gi
 ### Instance deployment options
 
 * Include [the hapi-plugin](https://github.com/greenkeeper-keeper/hapi-greenkeeper-keeper) in your own [hapi](https://hapijs.com) server. This is the recommended option because it is the simplest way for you to configure your instance to keep itself up to date.
-* Deploy the [reference instance](https://github.com/kkemple/greenkeeper-keeper) directly to your chosen host, like [Heroku](https://heroku.com/deploy).
+* Deploy the [reference instance](https://github.com/greenkeeper-keeper/reference-instance) directly to your chosen host, like [Heroku](https://heroku.com/deploy).
 * A prebuilt [Docker](https://www.docker.com/) image is available on [Docker Hub](https://hub.docker.com/) under [`cdaringe/greenkeeper-keeper`](https://hub.docker.com/r/cdaringe/greenkeeper-keeper)
 
 ### Setting up webhooks
