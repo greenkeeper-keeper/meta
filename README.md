@@ -1,5 +1,7 @@
 # greenkeeper-keeper
 
+![greenkeeper-keeper](./greenkeeper-keeper-bot.jpg)
+
 `greenkeeper-keeper` is a service to automatically merge passing [greenkeeper](https://greenkeeper.io) PRs
 
 ## Motivation
