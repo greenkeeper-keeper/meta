@@ -2,7 +2,7 @@
 
 `greenkeeper-keeper` is a service to automatically merge passing [greenkeeper](https://greenkeeper.io) PRs
 
-![greenkeeper-keeper](./greenkeeper-keeper-bot.jpg)
+![greenkeeper-keeper](./greenkeeper-keeper.jpg)
 
 ## Motivation
 
