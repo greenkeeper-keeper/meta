@@ -6,7 +6,7 @@
 
 ## Motivation
 
-[Greenkeeper](https://greenkeeper.io) is a fantastic service that makes it easy for me to keep dependencies up to date. However, it can get a bit noisy and create quite a few PRs. Hence, [the birth of greenkeeper-keeper](https://medium.com/@kurtiskemple/keeping-up-with-greenkeeper-io-a8d6c1703e4a).
+[Greenkeeper](https://greenkeeper.io) is a fantastic service that makes it easy to keep dependencies up to date. However, it can get a bit noisy and create quite a few PRs. Hence, [the birth of greenkeeper-keeper](https://medium.com/@kurtiskemple/keeping-up-with-greenkeeper-io-a8d6c1703e4a).
 
 To help you keep up with all of that activity, `greenkeeper-keeper` can automatically accept PRs from [greenkeeper](https://github.com/integration/greenkeeper) as long as all of your commit status checks pass.
 
@@ -35,5 +35,7 @@ It will only accept PRs that have passing [commit status checks](https://help.gi
 
 Once your service is up and running, you will want to set up [webhooks](https://developer.github.com/webhooks) for the repositories you want `greenkeeper-keeper` to manage.
 
-* Select _only_ the `pull_request` event when enabling the webhook
+* Select _either_ the `pull_request` event (deprecated) or the `status` event when enabling the webhook. It is not recommended to select both events since it can cause dual processing.
+    * `pull_request` is only fired when the PR is opened. Since it is very likely that status checks are still processing, polling happens to wait for all of the status checks to complete. Polling times out after an hour, so checks that are hung for too long can leave a PR unmerged, even if the checks eventually complete successfully. Because of these complications, use of the `pull_request` event has been deprecated in favor of the `status` event
+    * `status` fires each time a new status is reported. This means that PRs are merged almost immediately after all of the status checks have reported success. However, since greenkeeper [waits for status updates on the branch before opening the PR](https://greenkeeper.io/#how-it-works), it is possible that no events will fire after the PR is opened if your CI server does not run an additional build specifically for the PR. [Circle CI](https://circleci.com/) appears to be in the category of services that does not have the additional build. If you happen to use a CI server that acts this way, please [open an issue](https://github.com/greenkeeper-keeper/meta/issues/new) and help us determine an appropriate approach to handling this situation.
 * Set the url to `<url for your deployed greenkeeper-keeper instance>/payload` (don't forget the `/payload`)
