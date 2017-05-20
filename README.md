@@ -8,7 +8,7 @@
 
 [Greenkeeper](https://greenkeeper.io) is a fantastic service that makes it easy for me to keep dependencies up to date. However, it can get a bit noisy and create quite a few PRs. Hence, [the birth of greenkeeper-keeper](https://medium.com/@kurtiskemple/keeping-up-with-greenkeeper-io-a8d6c1703e4a).
 
-To help you keep up with all of that activity, `greenkeeper-keeper` can automatically accept PRs from greenkeeper as long as all of your commit status checks pass.
+To help you keep up with all of that activity, `greenkeeper-keeper` can automatically accept PRs from [greenkeeper](https://github.com/integration/greenkeeper) as long as all of your commit status checks pass.
 
 ## Designed to help, not take over
 
