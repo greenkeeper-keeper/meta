@@ -10,24 +10,29 @@ sequenceDiagram
     cs->>-gh: status-check result
     activate gkk
     activate gkk
-    gh->>+gkk: Successful webhook from greenkeeper
+    gh->>+gkk: status-check result webhook
+    alt status-check is not successful
+        gkk-->>gh: bad request
+    end
     gkk->>+gh: request PRs related to PR commit
     gh-->>-gkk: list of PRs for PR commit
     alt no PRs for commit
-        gkk->>gh: bad request
+        gkk-->>gh: bad request
     end
     alt more than one PR for commit
-        gkk->>gh: bad request
+        gkk-->>gh: bad request
     end
     alt PR is not from greenkeeper
-        gkk->>gh: bad request
+        gkk-->>gh: bad request
     end
-    gkk->>gh: event will be processed
+    gkk-->>gh: event will be processed
     deactivate gkk
     gkk->>+gh: get combined status for ref
     gh-->>-gkk: combined status
     gkk->>+gh: list checks for ref
     gh-->>-gkk: checks list
-    gkk->>gh: accept PR
+    opt if all checks and statuses are successful
+        gkk->>gh: accept PR
+    end
     deactivate gkk
     deactivate gh
