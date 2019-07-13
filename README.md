@@ -16,6 +16,12 @@ To help you keep up with all of that activity, `greenkeeper-keeper` can automati
 
 It will only accept PRs that have passing [commit status checks](https://help.github.com/articles/about-required-status-checks/). If any checks fail, `greenkeeper-keeper` will comment on the PR to inform you that it could not accept the PR and will let you take care of resolving the problem.
 
+## Flow
+
+### When triggered by a status-check webhook
+
+![status-flow](./status.svg)
+
 ## Setting up your own instance
 
 ### Things you will need
